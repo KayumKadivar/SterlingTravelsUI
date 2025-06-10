@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sterling Travels - Packages</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <img src="https://i.imgur.com/0QeQZ4C.png" alt="Sterling Travels Logo" class="logo"/>
+    <div class="brand">
+      <span class="brand-main">Sterling <span class="brand-alt">Travels</span></span>
+      <span class="brand-tag">NAVIGATE EXCELLENCE</span>
+    </div>
+  </header>
+  <main>
+    <section class="carousel">
+      <!-- <button class="carousel-btn prev">&#8592;</button> -->
+      <div class="carousel-track">
+        <!-- Card 1 -->
+        <div class="card">
+          <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80');">
+            <!-- <span class="badge">BEST SELLING</span> -->
+            <span class="duration">04N / 05D</span>
+          </div>
+          <div class="card-body">
+            <h3>Dubai: Luxury and Adventure This Easter</h3>
+            <div class="features">
+              <p><span class="feature-icon">🚗</span> <span>Transfer</span></p>
+              <p><span class="feature-icon">🏨</span> <span>Hotel</span></p>
+              <p><span class="feature-icon">🍽️</span> <span>Meal</span></p>
+              <p><span class="feature-icon">📸</span> <span>Sightseeing</span></p>
+            </div>
+            <p>Celebrate Easter in Dubai, with luxury shopping, desert safaris, and breathtaking views. Enjoy a mix of culture, adventure, and modern attractions.</p>
+            <div class="price-label">Starting From</div>
+            <div class="price">592,250 AOA</div>
+            <div class="actions">
+              <button class="chat">💬 CHAT WITH US</button>
+              <button class="callback">📞 REQUEST CALLBACK</button>
+            </div>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="card">
+          <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80');">
+            <!-- <span class="badge">BEST SELLING</span> -->
+            <span class="duration">03N / 04D</span>
+          </div>
+          <div class="card-body">
+            <h3>Rwanda: Spiritual Easter Journey</h3>
+            <div class="features">
+              <p><span class="feature-icon">🚗</span> <span>Transfer</span></p>
+              <p><span class="feature-icon">🏨</span> <span>Hotel</span></p>
+              <p><span class="feature-icon">🍽️</span> <span>Meal</span></p>
+              <p><span class="feature-icon">📸</span> <span>Sightseeing</span></p>
+            </div>
+            <p>Explore Rwanda's deep spiritual and cultural heritage while experiencing a sense of tranquility and connection with nature.</p>
+            <div class="price-label">Starting From</div>
+            <div class="price">760,150 AOA</div>
+            <div class="actions">
+              <button class="chat">💬 CHAT WITH US</button>
+              <button class="callback">📞 REQUEST CALLBACK</button>
+            </div>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="card">
+          <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=600&q=80');">
+            <!-- <span class="badge">BEST SELLING</span> -->
+            <span class="duration">06N / 07D</span>
+          </div>
+          <div class="card-body">
+            <h3>Easter Morocco Tour: Unveil History</h3>
+            <div class="features">
+              <p><span class="feature-icon">🚗</span> <span>Transfer</span></p>
+              <p><span class="feature-icon">🏨</span> <span>Hotel</span></p>
+              <p><span class="feature-icon">🍽️</span> <span>Meal</span></p>
+              <p><span class="feature-icon">📸</span> <span>Sightseeing</span></p>
+            </div>
+            <p>Visit ancient cities like Fes and Marrakech while learning about Morocco's rich, vibrant history.</p>
+            <div class="price-label">Starting From</div>
+            <div class="price">1,595,050 AOA</div>
+            <div class="actions">
+              <button class="chat">💬 CHAT WITH US</button>
+              <button class="callback">📞 REQUEST CALLBACK</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <button class="carousel-btn next">&#8594;</button> -->
+    </section>
+  </main>
+  <script>
+    // Simple carousel scroll
+    const track = document.querySelector('.carousel-track');
+    const prevBtn = document.querySelector('.carousel-btn.prev');
+    const nextBtn = document.querySelector('.carousel-btn.next');
+    prevBtn.onclick = () => { track.scrollBy({left: -track.offsetWidth, behavior: 'smooth'}); };
+    nextBtn.onclick = () => { track.scrollBy({left: track.offsetWidth, behavior: 'smooth'}); };
+  </script>
+</body>
+</html>
