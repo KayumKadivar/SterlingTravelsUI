@@ -1,345 +1,316 @@
 :root {
-  --primary: #e30613;
-  --secondary: #1a2a3a;
-  --accent: #ffcb05;
-  --bg: #f7f9fa;
-  --card-bg: #fff;
-  --shadow: 0 8px 32px rgba(30, 40, 90, 0.10), 0 1.5px 4px rgba(30, 40, 90, 0.08);
-  --radius: 22px;
-  --font-main: 'Montserrat', Arial, sans-serif;
+  --primary-color: #d32f2f;
+  --secondary-color: #263238;
+  --accent-color: #ffb300;
+  --background-color: #f5f7fa;
+  --card-background: #ffffff;
+  --card-shadow: 0 6px 24px rgba(0, 0, 0, 0.1), 0 2px 6px rgba(0, 0, 0, 0.08);
+  --border-radius: 16px;
+  --font-family: 'Montserrat', Arial, sans-serif;
 }
 
-/* * {
+* {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  font-family: var(--font-main);
-  background: var(--bg);
-  color: var(--secondary);
+  font-family: var(--font-family);
+  background: var(--background-color);
+  color: var(--secondary-color);
 }
 
-.header {
+.site-header {
   display: flex;
   align-items: center;
-  padding: 2rem 2rem 1rem 2rem;
+  padding: 1.5rem;
   background: #fff;
-  box-shadow: var(--shadow);
-} */
+  box-shadow: var(--card-shadow);
+}
 
-/* .logo {
-  height: 54px;
-  margin-right: 1.2rem;
-} */
+.site-logo {
+  height: 48px;
+  margin-right: 1rem;
+}
 
-/* .brand { */
-/* display: flex;
+.brand-container {
+  display: flex;
   flex-direction: column;
-  justify-content: center;
-} */
+}
 
-/* .brand-main {
-  font-size: 2rem;
+.brand-title {
+  font-size: 1.8rem;
   font-weight: 700;
-  color: var(--primary);
-  letter-spacing: 0.5px;
-} */
-/* 
-.brand-alt {
-  color: var(--secondary);
-  font-weight: 600;
-} */
+  color: var(--primary-color);
+}
 
-/* .brand-tag {
-  font-size: 0.95rem;
-  color: #2a3a4a;
-  letter-spacing: 2px;
+.brand-highlight {
+  color: var(--secondary-color);
+}
+
+.brand-slogan {
+  font-size: 0.85rem;
+  color: #37474f;
+  letter-spacing: 1.5px;
   font-weight: 500;
-  margin-top: -2px;
-} */
+}
 
-.carousel {
+.travel-gallery {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin: 2.5rem auto;
-  /* max-width: 1200px; */
-  gap: 1rem;
+  gap: 0.5rem;
 }
 
-.carousel-btn {
-  background: #fff;
+.gallery-nav {
+  background: var(--card-background);
   border: none;
-  box-shadow: var(--shadow);
   border-radius: 50%;
-  width: 44px;
-  height: 44px;
-  font-size: 1.5rem;
-  color: var(--primary);
+  width: 40px;
+  height: 40px;
+  font-size: 1.2rem;
+  color: var(--primary-color);
   cursor: pointer;
-  transition: background 0.2s;
-  z-index: 2;
+  box-shadow: var(--card-shadow);
+  transition: background-color 0.2s ease;
 }
 
-.carousel-btn:hover {
-  background: var(--accent);
+.gallery-nav:hover {
+  background: var(--accent-color);
+  color: #fff;
 }
 
-.carousel-track {
-  display: flex;
-  gap: 2rem;
+.gallery-container {
+  display: grid;
+  gap: 1.5rem;
+  padding: 1rem 0;
+  /* Default for smaller screens: single column with scrolling */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   overflow-x: auto;
   scroll-behavior: smooth;
-  padding: 1rem 0.5rem;
   scrollbar-width: none;
-  -ms-overflow-style: none;
 }
 
-.carousel-track::-webkit-scrollbar {
+.gallery-container::-webkit-scrollbar {
   display: none;
 }
 
-.card {
-  background: var(--card-bg);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  min-width: 430px;
-  max-width: 440px;
-  flex: 0 0 430px;
+/* Large screens: 3 cards per row */
+@media (min-width: 1024px) {
+  .gallery-container {
+    grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+    overflow-x: visible; /* Disable horizontal scrolling */
+  }
+
+  .travel-card {
+    max-width: 100%; /* Allow cards to fit within the grid */
+  }
+}
+
+/* Tablet view: 2 cards per row */
+@media (max-width: 1023px) and (min-width: 769px) {
+  .gallery-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
+    gap: 1rem;
+    overflow-x: visible; /* Disable scrolling for tablet */
+  }
+
+  .travel-card {
+    max-width: 100%;
+  }
+}
+
+/* Mobile view: 1 card per row with scrolling */
+@media (max-width: 768px) {
+  .gallery-container {
+    grid-template-columns: 1fr; /* 1 card per row */
+    gap: 1rem;
+    overflow-x: auto; /* Enable scrolling for mobile */
+  }
+
+  .travel-card {
+    min-width: 90vw;
+    max-width: 95vw;
+  }
+}
+
+.travel-card {
+  background: var(--card-background);
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-shadow);
+  min-width: 300px;
+  max-width: 350px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  transition: transform 0.4s ease, box-shadow 0.3s ease;
-  transform: scale(1);
-  will-change: transform;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.card:hover {
-  transform: scale(1.03);
-  /* box-shadow: 0 16px 40px rgba(30, 40, 90, 0.18), 0 4px 12px rgba(30, 40, 90, 0.1); */
+.travel-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
 }
 
-/* .card-img::after {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0, 0, 0, 0.15);
-  opacity: 0;
-  transition: opacity 0.4s ease;
-} */
-/* 
-.card:hover .card-img::after {
-  opacity: 1;
-} */
-
-.card-img {
+.card-media {
   position: relative;
-  height: 200px;
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 1rem;
-  transition: all 0.3s ease-in-out;
-  /* Transition all properties */
-  transform-origin: center center;
-  /* Scale from center */
+  height: 180px;
+  overflow: hidden;
 }
 
-.card:hover .card-img {
-  transform: scale(1.05);
+.card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
 }
 
-/* Optional overlay effect */
-.card-img::after {
+.travel-card:hover .card-media img {
+  transform: scale(1.1);
+}
+
+.card-media::after {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.25);
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.4s ease;
 }
 
-.card:hover .card-img::after {
+.travel-card:hover .card-media::after {
   opacity: 1;
 }
 
-.badge {
-  background: var(--primary);
-  color: #fff;
-  font-size: 0.95rem;
-  font-weight: 700;
-  border-radius: 16px;
-  padding: 0.3em 1em;
+.trip-duration {
+  background: var(--accent-color);
+  color: #1a1a1a;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 12px;
+  padding: 0.4rem 0.8rem;
   position: absolute;
-  top: 1rem;
-  left: 1rem;
-  box-shadow: 0 2px 8px rgba(30, 40, 90, 0.10);
-  letter-spacing: 1px;
+  bottom: 0.8rem;
+  left: 0.8rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-.duration {
-  background: var(--accent);
-  color: #222;
-  font-size: 1rem;
-  font-weight: 700;
-  border-radius: 16px;
-  padding: 0.3em 1em;
-  position: absolute;
-  bottom: 1rem;
-  left: 1rem;
-  box-shadow: 0 2px 8px rgba(30, 40, 90, 0.10);
-}
-
-.card-body {
-  padding: 1.5rem 1.2rem 1.2rem 1.2rem;
+.card-content {
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   flex: 1;
 }
 
-.card-body h3 {
-  font-size: 1.2rem;
+.card-content h3 {
+  font-size: 1.1rem;
   font-weight: 700;
-  margin: 0 0 0.7rem 0;
-  color: var(--secondary);
-  transition: color 0.18s;
+  margin: 0 0 0.5rem;
+  color: var(--secondary-color);
+  transition: color 0.2s ease;
 }
 
-.card:hover h3 {
-  color: var(--primary);
+.travel-card:hover h3 {
+  color: var(--primary-color);
 }
 
-.features {
+.amenities {
   display: flex;
   justify-content: space-between;
-  gap: 1.1rem;
-  font-size: 0.8rem;
-  color: #2a3a4a;
-  margin-bottom: 0.7rem;
-  margin-top: 0.7rem;
-  border-top: 1px solid #e0e0e0;
-  border-bottom: 1px solid #e0e0e0;
-  padding-top: 0.5rem;
-  /* padding-bottom: 0.7rem; */
+  gap: 0.8rem;
+  font-size: 0.75rem;
+  color: #455a64;
+  margin: 0.5rem 0;
+  padding: 0.5rem 0;
+  border-top: 1px solid #e0e4e8;
+  border-bottom: 1px solid #e0e4e8;
 }
 
-.card-body p {
-  font-size: 0.98rem;
-  color: #4a5a6a;
-  margin: 0 0 1.1rem 0;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.card-body p span {
+.amenities p {
   display: flex;
   align-items: center;
+  gap: 0.4rem;
+}
+
+.card-content p {
+  font-size: 0.9rem;
+  color: #546e7a;
+  margin: 0.5rem 0 0.8rem;
+  flex: 1;
+}
+
+.price-text {
+  color: var(--primary-color);
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+.price-amount {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--secondary-color);
+  margin-bottom: 0.8rem;
+}
+
+.card-actions {
+  display: flex;
   gap: 0.5rem;
 }
 
-.price-label {
-  color: var(--primary);
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 0.1rem;
-}
-
-.price {
-  font-size: 1.35rem;
-  font-weight: 700;
-  color: var(--secondary);
-  margin-bottom: 1.1rem;
-}
-
-.actions {
-  display: flex;
-  gap: 0.7rem;
-}
-
-.actions button {
+.card-actions button {
   flex: 1;
-  padding: 0.7em 0.5em;
+  padding: 0.6rem;
   border: none;
-  border-radius: 10px;
-  font-size: 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.18s, color 0.18s;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.actions .chat {
-  background: var(--accent);
-  color: #222;
+.contact-btn {
+  background: var(--accent-color);
+  color: #1a1a1a;
 }
 
-.actions .chat:hover {
-  background: var(--primary);
+.contact-btn:hover {
+  background: var(--primary-color);
   color: #fff;
 }
 
-.actions .callback {
-  background: var(--primary);
+.callback-btn {
+  background: var(--primary-color);
   color: #fff;
 }
 
-.actions .callback:hover {
-  background: var(--accent);
-  color: #222;
+.callback-btn:hover {
+  background: var(--accent-color);
+  color: #1a1a1a;
 }
 
-/* Responsive */
-@media (max-width: 1100px) {
-  .carousel-track {
-    gap: 1rem;
-  }
-
-  .card {
-    min-width: 300px;
-    max-width: 320px;
-    flex-basis: 300px;
-  }
-}
-
-@media (max-width: 900px) {
-  .carousel {
-    max-width: 100vw;
-    padding: 0 0.5rem;
-  }
-
-  .header {
+/* Mobile-specific adjustments */
+@media (max-width: 480px) {
+  .site-header {
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.5rem;
-    padding: 1.2rem 1rem 0.7rem 1rem;
-  }
-}
-
-@media (max-width: 700px) {
-  .carousel-track {
+    padding: 1rem;
     gap: 0.5rem;
   }
 
-  .card {
-    min-width: 90vw;
-    max-width: 95vw;
-    flex-basis: 90vw;
+  .site-logo {
+    height: 40px;
   }
 
-  .carousel-btn {
-    width: 38px;
-    height: 38px;
-    font-size: 1.2rem;
+  .brand-title {
+    font-size: 1.5rem;
   }
 
-  .header {
-    padding: 0.7rem 0.5rem 0.5rem 0.5rem;
+  .brand-slogan {
+    font-size: 0.75rem;
   }
 }
