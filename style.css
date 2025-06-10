@@ -56,11 +56,12 @@ body {
 }
 
 .travel-gallery {
-  max-width: 1200px;
+  max-width: 1300px;
   margin: 2rem auto;
   padding: 0 1rem;
   display: flex;
   align-items: center;
+  justify-content: space-around;
   gap: 0.5rem;
 }
 
